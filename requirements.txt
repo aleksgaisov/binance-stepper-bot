@@ -1,0 +1,10 @@
+python-binance==0.7.2
+requests==2.22.0
+autobahn==18.7.1
+certifi==2018.4.16
+chardet==3.0.4
+cryptography==2.3
+dateparser==0.7.0
+pyOpenSSL==19.0.0
+service-identity==17.0.0
+Twisted==18.7.0
