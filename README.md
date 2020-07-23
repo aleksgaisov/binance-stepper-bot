@@ -18,11 +18,26 @@ git clone https://github.com/aleksgaisov/binance-stepper-bot
 pip3 install -r requirements.txt
 ```
 
+List:
+
+```
+python-binance
+requests
+autobahn
+certifi
+chardet
+cryptography
+dateparser
+pyOpenSSL
+service-identity
+Twisted
+```
+
 ##### Exchange-side
 
-1. Register/Log in to Binance Exchange
+1. [Register/Log-in](https://accounts.binance.com/en/login) to Binance Exchange
 2. Apply all the necessary security measures to protect your account, including Two-Factor Authentication.
-3. Go to API Manager and create new API with the following restrictions:
+3. Go to [API Manager](https://www.binance.com/en/usercenter/settings/api-management) and create new API with the following restrictions:
 
 ```
 [*] Read Only    [*] Enable Trading    [] Enable Withdrawals
@@ -34,8 +49,12 @@ Optional: Consider restricting API access to trusted IPs only
 
 ##### Email-side
 
-https://www.google.com/settings/security/lesssecureapps
-https://accounts.google.com/DisplayUnlockCaptcha
+As this bot uses Gmail as SMTP provider, follow the steps to allow it to send you reports.
+
+1. [Allow less secure apps](https://www.google.com/settings/security/lesssecureapps) to access your account
+2. [Display unlock captcha](https://accounts.google.com/DisplayUnlockCaptcha) to prevent _SMTPAuthenticationError_ with code 534
+
+### Configuration
 
 ### Usage
 
