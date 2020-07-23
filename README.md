@@ -85,7 +85,7 @@ Some unimplemented configuration, like: toggle emailing, using different SMTP pr
 
 Simplified version of the general algorithm can be viewed on the flowchart below:
 
-[Generalized Algorithm](img/flowchart.jpg)
+![Generalized Algorithm](img/flowchart.jpg)
 
 #### Step and Spread
 
