@@ -1,10 +1,12 @@
 # Binance Stepper Bot
 
-The 'binance-stepper-bot' is a **trading automation program** for [Binance Exchange](https://www.binance.com/en) written in Python.
+The 'binance-stepper-bot' is a terminal-based, **trading automation program** for [Binance Exchange](https://www.binance.com/en) written in Python.
 
 It is designed to be robust and reliable, so it only utilizes usual _SELL_ and _BUY_ limit orders, each following trade is placed based on the pre-generated array of prices and has only two orders out on the market at the same time.
 
 Program is capable of sending you daily/weekly/monthly CSV reports with the number of completed trades and estimated profit. It also saves each and every order it places on the market in a CSV file, thus creating monthly trading history.
+
+Created using [python-binance](https://github.com/sammchardy/python-binance) - amazing pyton library for Binance API.
 
 ## Setting up
 
@@ -87,6 +89,8 @@ Simplified version of the general algorithm can be viewed on the flowchart below
 
 ![Generalized Algorithm](img/flowchart.jpg)
 
+For more detailed information - see the source code.
+
 #### Step and Spread
 
 In order to set the optimal values inside config file you should first get a brief idea of how do the orders are being generated and how do the values of **step** and **spread** affect them.
@@ -107,10 +111,26 @@ step: 0.00002
 spread: 2
 ```
 
-To visualize on a chart it would look like that:
+To visualize it on the chart:
 
 ![Visualization](img/chart.png)
 
+Therefore, all _BUY_ and _SELL_ orders will be placed with **spread** skipped entries in between. Distance between all the pre-generated entries is equal to **step**. As the trading goes, orders will be moved _UP_ or _DOWN_ by one entry keeping the distance the same. 
+
 ## Usage
 
+The program is designed for terminals, therefore, it should be executed within one. To start the bot, after filling in the _config.json_, run the main module _bot.py_ by:
+
+```
+python3 bot.py
+```
+
+Then confirm that the information about traded coin pair, step, spread and amount of coins per order is correct by typing in _'y'_, or enter _'n'_ to exit. You can stop the trading process at any time by pressing the universal 'Ctrl+C' combination.
+
 ## Disclaimer
+
+```
+Please notice that I am not to be responsible or liable for anything you do with this program.
+You use this program at your own risk.
+This libre piece of software is distributed without any warranties or guarantees.
+```
