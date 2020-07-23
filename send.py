@@ -8,9 +8,6 @@ from email import encoders
 
 import bot
 
-# https://www.google.com/settings/security/lesssecureapps
-# https://accounts.google.com/DisplayUnlockCaptcha
-
 def send_daily_report(report_name_, date_):
     mail_content = '''
     Hello,
