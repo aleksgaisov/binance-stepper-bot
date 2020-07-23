@@ -17,7 +17,7 @@ def generate_grid_of_prices():
 # A function for finding the current WINDOW price
 def find_current_window_price():
     for price in bot.PRICES_ARR: # Iterate through the array of prices
-        if price >= bot.INIT_COIN_PRICE: #  If the the price is larger than the current price
+        if price >= bot.INIT_COIN_PRICE: #  If the price is larger than the current price
             return price
             break;
         else:
