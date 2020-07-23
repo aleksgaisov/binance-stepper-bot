@@ -4,7 +4,7 @@ The 'binance-stepper-bot' is a **trading automation program** for [Binance Excha
 
 It is designed to be robust and reliable, so it only utilizes usual _SELL_ and _BUY_ limit orders, each following trade is placed based on the pre-generated array of prices and has only two orders out on the market at the same time.
 
-Program is capable of sending you daily/weekly/monthly reports with the number of completed trades and estimated profit. It also saves each and every order it places on the market, thus creating monthly trading history.
+Program is capable of sending you daily/weekly/monthly CSV reports with the number of completed trades and estimated profit. It also saves each and every order it places on the market in a CSV file, thus creating monthly trading history.
 
 ## Setting up
 
@@ -69,18 +69,46 @@ The program uses _config.json_ file for basic configuration settings. It is divi
 | api_key          | Binance API key                                                           |
 | api_secret       | Binance API secret key                                                    |
 | asset            | cryptocurrency listed on Binance you want to buy your coin with (ex. BTC) |
-| coin             | cryptocurrency listed on Binance you want to sell for you asset (ex. BNB) |
-| spread           | number of step values between your BUY and SELL order (ex. 4)             |
-| step             | distance between prices (ex. 0.00134)                                     |
-| conins_per_order | amount of coin for each trade (ex. 7)                                     |
-| sender_address   | email address to send emails from                                         |
+| coin             | cryptocurrency listed on Binance you want to sell for you asset (ex. ETH) |
+| spread           | number of step values between your BUY and SELL order >= 0 (ex. 2)        |
+| step             | distance between prices >= 0 (ex. 0.00002)                                |
+| conins_per_order | amount of coin for each trade (ex. 5)                                     |
+| sender_address   | email address to reports emails from                                      |
 | sedner_pass      | password from sender email                                                |
-| receiver_adderss | email address to send email to (could be the same as sender address)      |
+| receiver_adderss | email address to send reports to (could be the same as sender address)    |
 
-Some unimplemented configuration, like: toggle emailing, using different SMTP provider, frequency of report generation should be done by commenting appropriate source code section. For now.
-
-## Usage
+Some unimplemented configuration, like: toggle emailing, using different SMTP provider, frequency of report generation, frequency of market review should be done by commenting out appropriate source code section. For now.
 
 ## Trading Algorithm
+
+#### Flow Chart
+
+Simplified version of the general algorithm can be viewed on the flowchart below:
+
+[Generalized Algorithm](img/flowchart.jpg)
+
+#### Step and Spread
+
+In order to set the optimal values inside config file you should first get a brief idea of how do the orders are being generated and how do the values of **step** and **spread** affect them.
+
+It is easy to demonstrate on an example with arbitrary values:
+
+Imagine trading BTC against ETH (thus, ETH/BTC pair). Therefore, the values for **asset** and **coin** inside config file would be:
+
+```
+asset: "BTC"
+coin: "ETH"
+```
+
+Then you decide that a reasonable values for **step** and **spread** are:
+
+```
+step: 0.00002
+spread: 2
+```
+
+To visualize, on a chart it would look like that:
+
+## Usage
 
 ## Disclaimer
