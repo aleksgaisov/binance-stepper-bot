@@ -31,7 +31,7 @@ def start_trading_ui(asset_balance_free_, coin_balance_free_):
     print(f'Time: {datetime.datetime.now().strftime("%H:%M")}')
     print('--------------------------')
     print(f'Step: {bot.STEP_TO_PRINT}  {bot.TRADING_ASSET.lower()}')
-    print(f'Spread: {bot.SPREAD_TO_PRINT} ({_float_to_printable(round(bot.SPREAD * bot.STEP, bot.NUM_DECIMAL_PLACES))}) {bot.TRADING_ASSET.lower()}')
+    print(f'Spread: {bot.SPREAD_TO_PRINT} ({_float_to_printable(round((1 + bot.SPREAD) * bot.STEP, bot.NUM_DECIMAL_PLACES))}) {bot.TRADING_ASSET.lower()}')
     print(f'{bot.TRADING_COIN} per BID: {bot.COINS_PER_ORDER_TO_PRINT}')
     print('**************************\n')
 
