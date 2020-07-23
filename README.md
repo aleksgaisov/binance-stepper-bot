@@ -107,7 +107,9 @@ step: 0.00002
 spread: 2
 ```
 
-To visualize, on a chart it would look like that:
+To visualize on a chart it would look like that:
+
+![Visualization](img/chart.jpg)
 
 ## Usage
 
