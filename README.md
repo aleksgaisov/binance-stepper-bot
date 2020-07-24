@@ -83,7 +83,7 @@ Some unimplemented configuration, like: toggle emailing, using different SMTP pr
 
 ## Trading Algorithm
 
-See the simplified version of the [algorithm](img/flowchart.jpg) in a form of flowchart. For more detailed information - see the source code.
+See the simplified version of the algorithm in a form of [flowchart](img/flowchart.jpg). For more detailed information - see the source code.
 
 #### Step and Spread
 
@@ -125,6 +125,6 @@ Then confirm that the information about traded coin pair, step, spread and amoun
 
 ```
 Please notice that I am not to be responsible or liable for anything you do with this program.
-You use this program at your own risk.
 This libre piece of software is distributed without any warranties or guarantees.
+You use this program at your own risk.
 ```
