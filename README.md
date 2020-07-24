@@ -83,13 +83,7 @@ Some unimplemented configuration, like: toggle emailing, using different SMTP pr
 
 ## Trading Algorithm
 
-#### Flow Chart
-
-Simplified version of the general algorithm can be viewed on the flowchart below:
-
-![Generalized Algorithm](img/flowchart.jpg)
-
-For more detailed information - see the source code.
+See the simplified version of the [algorithm](img/flowchart.jpg) in a form of flowchart. For more detailed information - see the source code.
 
 #### Step and Spread
 
