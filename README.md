@@ -6,7 +6,7 @@ It is designed to be robust and reliable, so it only utilizes usual _SELL_ and _
 
 Program is capable of sending you daily/weekly/monthly CSV reports with the number of completed trades and estimated profit. It also saves each and every order it places on the market in a CSV file, thus creating monthly trading history.
 
-Created using [python-binance](https://github.com/sammchardy/python-binance) - amazing pyton library for Binance API.
+Created using [python-binance](https://github.com/sammchardy/python-binance) - amazing python library for Binance API.
 
 ## Setting up
 
