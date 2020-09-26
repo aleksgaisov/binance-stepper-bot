@@ -113,10 +113,10 @@ Therefore, all _BUY_ and _SELL_ orders will be placed with **spread** skipped en
 
 ## Usage
 
-The program is designed for terminals, therefore, it should be executed within one. To start the bot, after filling in the _config.json_, run the main module _bot.py_ by:
+The program is designed for terminals, therefore, it should be executed within one. To start the bot run the main module _base.py_ by:
 
 ```
-python3 bot.py
+python3 base.py
 ```
 
 Then confirm that the information about traded coin pair, step, spread and amount of coins per order is correct by typing in _'y'_, or enter _'n'_ to exit. You can stop the trading process at any time by pressing the universal 'Ctrl+C' combination.
