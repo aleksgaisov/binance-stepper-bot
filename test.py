@@ -12,9 +12,10 @@ import grab
 # -----------------
 def order_active(order_id):
     try:
-        order_info = base.CLIENT.query_orders_info(order_id, trades=False)
+        order_info = base.CLIENT.get_order(symbol=base.TRADING_PAIR, 
+                                           origClientOrderId=order_id)
 
-        if order_info['status'][0] == 'closed':
+        if order_info['status'] == 'FILLED':
             return False
         else:
             return True
