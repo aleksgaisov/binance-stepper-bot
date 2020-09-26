@@ -34,7 +34,7 @@ def regular_report(report_type, report_path_, report_name_, date_):
     message = MIMEMultipart() # instance of MIMEMultipart 
     message['From'] = base.SENDER_ADDRESS
     message['To'] = base.RECEIVER_ADDRESS
-    message['Subject'] = 'Kraken bot; ' + base.TRADING_PAIR + ' (' + report_type + ' Report: ' + date_ + ')'
+    message['Subject'] = 'Binance bot; ' + base.TRADING_PAIR + ' (' + report_type + ' Report: ' + date_ + ')'
       
     message.attach(MIMEText(mail_content, 'plain'))  # attach the body with the msg instance 
     
