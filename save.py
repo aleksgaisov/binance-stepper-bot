@@ -38,7 +38,7 @@ def order_record(order_type, coin_price):
         csv_writer.writerow({'date': current_date_str, 'pair': base.TRADING_PAIR, 'type': order_type, 'price': coin_price, 'coins': base.LOT})
 
 
-# Generate and mail a daily report
+# Generate and save a daily report
 # --- in
 # * int(num_closed_spreads)
 # --- out
@@ -52,7 +52,7 @@ def daily_report(num_closed_spreads):
     
     report_name = day_before_date_str + '_daily.csv'
     report_path = 'reports/daily/' + report_name
-    
+
     asset_profit = float(round(num_closed_spreads * (base.SPREAD * base.STEP * base.LOT), base.DECIMAL_PLACES))
     
     with open(report_path, 'w') as database:
@@ -64,19 +64,20 @@ def daily_report(num_closed_spreads):
             
         csv_writer.writerow({'date':day_before_date_str, 'closed':str(num_closed_spreads), 'profit':str(asset_profit)})
         print('\n| Daily Report was Generated\n')
-    
+
     try:  # Try to send the generated report via email
         mail.regular_report('Daily', str(report_path), str(report_name), str(day_before_date_str))
         print('\n| Daily Report was Sent\n')
-        
+
     except FileNotFoundError:
         print('[!!!] Cannot send the email: Report does not exists')
-    
+
     except:
         print('[!!!] Cannot send the email: Unexpected Error')
 
 
 # Generate and save a weekly report
+# (also send it via email, if selected)
 # --- in
 # * int(num_closed_spreads)
 # --- out
@@ -103,14 +104,14 @@ def weekly_report(num_closed_spreads):
             
         csv_writer.writerow({'date':current_date_str, 'closed':str(num_closed_spreads), 'profit':str(asset_profit)})
         print('\n| Weekly Report was Generated\n')
-        
+
     try:  # Try to send the generated report via email
         mail.regular_report('Weekly', str(report_path), str(report_name), str(week_before_date_str + '-' + current_date_str))
         print('\n| Weekly Report was just Sent\n')
-        
+
     except FileNotFoundError:
         print('[!!!] Cannot send the email: Report does not exists')
-    
+
     except:
         print('[!!!] Cannot send the email: Unexpected Error')
 
@@ -132,6 +133,7 @@ def _get_past_month_num():
 
 
 # Generate and save a monthly report
+# (also send it via email, if selected)
 # --- in
 # * int(num_closed_spreads)
 # --- out
@@ -158,13 +160,13 @@ def monthly_report(num_closed_spreads):
             
         csv_writer.writerow({'date': current_date_str, 'closed':str(num_closed_spreads), 'profit':str(asset_profit)})
         print('\n| Monthly Report was Generated\n')
-        
+
     try:  # Try to send the generated report via email
         mail.regular_report('Monthly', str(report_path), str(report_name), month_before_date_str)
         print('\n| Monthly Report was just Sent\n')
-        
+
     except FileNotFoundError:
         print('[!!!] Cannot send the email: Report does not exists')
-    
+
     except:
         print('[!!!] Cannot send the email: Unexpected Error')
