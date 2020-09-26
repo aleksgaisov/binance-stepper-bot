@@ -12,12 +12,13 @@ Created using [python-binance](https://github.com/sammchardy/python-binance) - a
 
 #### Bot-side
 
-1. Make sure you have Python >= 3.7 installed
-2. Download all the repository files to your machine or clone it:
+1. Make sure you have Python >= 3.6 installed
+2. Download all the project files to your machine or clone it:
 
 ```
 git clone https://github.com/aleksgaisov/binance-stepper-bot
 ```
+
 3. Install all the necessary dependencies listed in _requirements.txt_:
 
 ```
