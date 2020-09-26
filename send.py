@@ -73,26 +73,17 @@ def out_trading_info():
 # --- in
 # * str(order_type)
 # * str(order_price)
-# --- out
 # * str(order_id)
+# --- out
+# None
 # -----------------
-def base_order(order_type, order_price):
-    try: 
-        response = base.CLIENT.add_standard_order(base.TRADING_PAIR,    # pair
-                                                  order_type,           # type 
-                                                  'limit',              # ordertype 
-                                                  str(base.LOT),        # vol 
-                                                  order_price,          # price 
-                                                  validate=False)       # allow order to be send 
-    except:
-        print('| Config values are invalid')
-        sys.exit()
+def base_order(order_type, order_price, order_id):
+    base.CLIENT.order_limit(symbol=base.TRADING_PAIR, 
+                            side=order_type,
+                            quantity=base.LOT, 
+                            price=order_price,
+                            newClientOrderId=order_id)
 
-
-    order_id = response['txid'][0]  # Save a unique ID current order was sent with
-    time.sleep(1)  # Delay to avoid "public call frequency exceeded" error
-
-    return str(order_id)
 
 
 # Cancel a certain order 
@@ -103,6 +94,8 @@ def base_order(order_type, order_price):
 # -----------------
 def cancel_order(order_id):
     try:
-       base.CLIENT.cancel_open_order(order_id)
+       base.CLIENT.cancel_order(symbol=base.TRADING_PAIR,
+                                origClientOrderId=order_id) 
     except:
         print('| Noting to cancel')
+
