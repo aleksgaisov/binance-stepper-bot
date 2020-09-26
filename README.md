@@ -65,26 +65,25 @@ This bot can email you reports based on its activity on the market. It uses Gmai
 
 ## Configuration
 
-The program uses _config.json_ file for basic configuration settings. It is divided in two entries: _Binance\_bot_ and _Email\_sender_.
+Configuration of the trading bot takes place in the main module _base.py_ via constant variables:
 
-| Setting          | Description                                                               |
-|------------------|---------------------------------------------------------------------------|
-| api_key          | Binance API key                                                           |
-| api_secret       | Binance API secret key                                                    |
-| asset            | cryptocurrency listed on Binance you want to buy your coin with (ex. BTC) |
-| coin             | cryptocurrency listed on Binance you want to sell for you asset (ex. ETH) |
-| spread           | number of step values between your BUY and SELL order >= 0 (ex. 2)        |
-| step             | distance between prices >= 0 (ex. 0.00002)                                |
-| conins_per_order | amount of coin for each trade (ex. 5)                                     |
-| sender_address   | email address to reports emails from                                      |
-| sedner_pass      | password from sender email                                                |
-| receiver_adderss | email address to send reports to (could be the same as sender address)    |
-
-Some unimplemented configuration, like: toggle emailing, using different SMTP provider, frequency of report generation, frequency of market review should be done by commenting out appropriate source code section. For now.
+|       Constant       |                      Description                     |
+|:--------------------:|:----------------------------------------------------:|
+| API_KEY              | Binance API key                                      |
+| API_SECRET           | Binance API secret key                               |
+| TRADING_COIN         | Cryptocurrency you want to trade for (ex. ETH)       |
+| TRADING_ASSET        | Cryptocurrency you want to trade against (ex. BTC)   |
+| STEP                 | Distance between order prices (ex. 0.00002)          |
+| SPREAD               | Number of 'STEP' values between orders (ex. 3)       |
+| LOT                  | Quantity of 'TRADING_COIN' per order                 |
+| MAIL_DAILY_REPORTS   | If you want to generate and mail you daily reports   |
+| MAIL_WEEKLY_REPORTS  | If you want to generate and mail you weekly reports  |
+| MAIL_MONTHLY_REPORTS | If you want to generate and mail you monthly reports |
+| SENDER_ADDRESS       | Gmail address to send reports from                   |
+| SENDER_PASS          | 'SENDER_ADDRESS' password                            |
+| RECEIVER_ADDRESS     | Any email address to receive reports to              |
 
 ## Trading Algorithm
-
-See the simplified version of the algorithm in a form of [flowchart](img/flowchart.jpg). For more detailed information - see the source code.
 
 #### Step and Spread
 
@@ -125,7 +124,7 @@ Then confirm that the information about traded coin pair, step, spread and amoun
 ## Disclaimer
 
 ```
-Please notice that I am not to be responsible or liable for anything you do with this program.
+Please notice that I am not responsible or liable for anything you do with this program.
 This libre piece of software is distributed without any warranties or guarantees.
 You use this program at your own risk.
 ```
